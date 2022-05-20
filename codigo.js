@@ -8,6 +8,7 @@ function telaPrint(controle){
 function limparTela(){
     document.getElementById('tela').value = '';
     calculo = '';
+    valorFinal ='';
 }
 
 function inserirValor(Valor){
@@ -19,12 +20,10 @@ function inserirValor(Valor){
 }
 
 function inserirOperacao(opcao){
-    
     if(calculo != ''){
         valorFinal += calculo;
         valorFinal += opcao;
-        console.log(valorFinal);
-        limparTela();
+        calculo='';
         telaPrint(calculo);
     }
 }
@@ -35,5 +34,7 @@ function exibirResultado(){
         valorFinal += calculo;           
         valorFinal = (eval(valorFinal));
         telaPrint(valorFinal);
-    } 
+    }
+    calculo = valorFinal;
+    valorFinal='';
 }
